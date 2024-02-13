@@ -24,12 +24,9 @@ public class Main {
         }while(p1 >= 1 || p1 <= 0);
 
         do{
-            System.out.print("Введіть першу знижку p2( 0 <= p2 <= 1): ");
+            System.out.print("Введіть другу знижку p2( 0 <= p2 <= 1): ");
             p2 = scanner.nextDouble();
         }while(p2 >= 1 || p2 <= 0);
-
-        System.out.print("Введіть другу знижку p2: ");
-        p2 = scanner.nextDouble();
 
         System.out.println("Введіть суму цін продуктів: ");
         S = scanner.nextDouble();
