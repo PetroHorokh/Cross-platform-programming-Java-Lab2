@@ -69,7 +69,7 @@ public class Main {
                             + ";inf]");
         }
         else if(delta <= 0){
-            System.out.println("Інтервал, що буде розв'язком: [-inf;;inf]");
+            System.out.println("Інтервал, що буде розв'язком: [-inf;inf]");
         }
     }
 
