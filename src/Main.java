@@ -8,28 +8,28 @@ public class Main {
 
         System.out.println("Завдання №1");
 
-        double S1, S2, p1, p2, S;
+        float S1, S2, p1, p2, S;
 
         System.out.print("Введіть суму для задіяння першої знижки S1: ");
-        S1 = scanner.nextDouble();
+        S1 = scanner.nextFloat();
 
         do{
             System.out.print("Введіть суму для задіяння другої знижки S2( S1 < S2): ");
-            S2 = scanner.nextDouble();
+            S2 = scanner.nextFloat();
         }while(S2 <= S1);
 
         do{
             System.out.print("Введіть першу знижку p1( 0 <= p1 <= 1): ");
-            p1 = scanner.nextDouble();
+            p1 = scanner.nextFloat();
         }while(p1 >= 1 || p1 <= 0);
 
         do{
             System.out.print("Введіть другу знижку p2( 0 <= p2 <= 1): ");
-            p2 = scanner.nextDouble();
+            p2 = scanner.nextFloat();
         }while(p2 >= 1 || p2 <= 0);
 
         System.out.println("Введіть суму цін продуктів: ");
-        S = scanner.nextDouble();
+        S = scanner.nextFloat();
 
         if(S >= S1){
             if(S >= S2){
