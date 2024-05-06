@@ -1,7 +1,5 @@
 import java.util.Scanner;
 
-import static java.lang.Math.sqrt;
-
 public class Main {
 
     public static double task1(Scanner scanner){
@@ -19,14 +17,14 @@ public class Main {
         }while(S2 <= S1);
 
         do{
-            System.out.print("Введіть першу знижку p1( 0 <= p1 <= 1): ");
+            System.out.print("Введіть першу знижку p1( 0 < p1 < 1): ");
             p1 = scanner.nextFloat();
-        }while(p1 >= 1 || p1 <= 0);
+        }while(p1 <= 0 || 1 <= p1);
 
         do{
-            System.out.print("Введіть другу знижку p2( 0 <= p2 <= 1): ");
+            System.out.print("Введіть другу знижку p2( 0 < p2 < 1): ");
             p2 = scanner.nextFloat();
-        }while(p2 >= 1 || p2 <= 0);
+        }while(p2 <= 0 || 1 <= p2 );
 
         System.out.println("Введіть суму цін продуктів: ");
         S = scanner.nextFloat();
@@ -44,29 +42,45 @@ public class Main {
 
         System.out.println("Завдання №2");
 
-        double a, b, c, delta;
+        double a, b, c, delta, l, x1, x2;
 
-        System.out.print("Введіть коефіцієнт а: ");
-        a = scanner.nextDouble();
+        do{
+            System.out.print("Введіть коефіцієнт а: ");
+            a = scanner.nextDouble();
 
-        System.out.print("Введіть коефіцієнт b: ");
-        b = scanner.nextDouble();
+            System.out.print("Введіть коефіцієнт b: ");
+            b = scanner.nextDouble();
+        }while(a == 0 && b == 0);
+
+        l = - b/a;
 
         System.out.print("Введіть коефіцієнт c: ");
         c = scanner.nextDouble();
 
         delta = a * a * c * c + 4 * b * c;
 
-        if(delta > 0){
-            System.out.println(
-                    "Інтервал, що буде розв'язком: [-inf;"
-                            + ((a*c - sqrt(delta))/2)
-                            + "]U["
-                            + ((a*c + sqrt(delta))/2)
-                            + ";inf]");
+        if(delta <= 0){
+            System.out.println("Solution:(" + l + ";inf)");
         }
-        else if(delta <= 0){
-            System.out.println("Інтервал, що буде розв'язком: [-inf;inf]");
+        else{
+            x1 = ( a * c - Math.sqrt(delta))/2;
+            x2 = ( a * c + Math.sqrt(delta))/2;
+
+            if(l < x1){
+                System.out.println("Solution:(" + l + ";" + x1 + "]U[" + x2 + ";inf)");
+            }
+            else if(l == x1){
+                System.out.println("Solution:[" + x2 + ";inf)");
+            }
+            else if(x1 < l && l < x2){
+                System.out.println("Solution:[" + x1 + ";" + l + ")U[" + x2 + ";inf)");
+            }
+            else if(l == x2){
+                System.out.println("Solution:[" + x1 + ";" + x2 + ")U(" + x2 + ";inf)");
+            }
+            else if(x2 < l){
+                System.out.println("Solution:[" + x1 + ";" + x2+ "]U(" + l + ";inf)");
+            }
         }
     }
 
